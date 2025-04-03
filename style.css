@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@font-face {
+    font-family: 'Bionix Fat';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Bionix Fat'), url('BionixFat-vnmEM.woff') format('woff');
+}
+canvas{
+    display: block;
+    vertical-align: bottom;
+}
+#particles-js {
+    position: fixed; /* Fixa o fundo */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #252744;
+    z-index: -1; /* Mantém as partículas atrás de todo o conteúdo */
+}
+
+
+.count-particles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    z-index: 2; /* Garante que o botão esteja na frente */
+}
+
+.js-count-particles{
+    font-size: 1.1em;
+}
+#stats, .count-particles{
+    -webkit-user-select: none;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+#stats{
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+}
+.count-particles{
+    border-radius: 0 0 3px 3px;
+}
+.topo, h1{
+    font-size: 5rem;
+    color: rgb(255, 255, 255, 0.8);
+    font-family: 'Bionix Fat';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+.top, p{
+    font-size: 1rem;
+    width: 40%;
+}
+.cta {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaçamento entre texto e ícone */
+    padding: 6px 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    overflow: hidden;
+    text-decoration: none;
+    margin-top: 1rem;
+}
+
+.cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50px;
+    background: rgb(75, 75, 151);
+    width: 45px;
+    height: 35px;
+    transition: all 0.3s ease;
+    z-index: -1; /* Mantém o fundo atrás do conteúdo */
+}
+
+
+.cta span {
+    position: relative; /* Garante que o texto fique acima do fundo */
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: rgb(224, 224, 255);
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.cta svg {
+    position: relative;
+    width: 15px;
+    height: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: rgb(224, 224, 255);
+    stroke-width: 2;
+    transition: transform 0.3s ease;
+    z-index: 1; /* Ícone também fica acima do fundo */
+}
+
+.cta:hover svg {
+    transform: translateX(5px);
+}
+
+
+.cta:hover:before {
+    width: 100%;
+    background: rgb(75, 75, 151);
+}
+
+.cta:active {
+    transform: scale(0.95);
+}
+#oq {
+    height: 70vh; /* Em vez de altura fixa, deixe o conteúdo definir a altura */
+    min-height: 20vh;
+    width: 100vw;
+    color: white;
+    padding: 50px 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+.sobre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: rgba(26, 26, 26, 0.1);
+    backdrop-filter: blur(10px);
+    border: solid 1px rgb(255, 255, 255, 0.2);
+    padding: 2rem;
+    width: 50%;
+    height: 20rem;
+    border-radius: 1vw;
+    color: rgb(255, 255, 255, 0.8);
+}
+.conteudo h2{
+    font-size: 2rem;
+    font-weight: 900;
+}
+.conteudo p{
+    width: 100%;
+}
+.titulo-servicos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.titulos{
+    color: white;
+    font-size: 3rem;
+    width: 60%;
+    text-align: center;
+}
+
+.contain {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebra de linha em telas menores */
+    justify-content: center; /* Centraliza os cartões */
+    gap: 1.5rem; /* Melhor espaçamento */
+    width: 100%;
+}
+.abordados{
+    min-height: 40vh;
+    width: 67vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+.accordion-item{
+    width: 100%;
+    background-color: rgba(55, 48, 94, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    border: solid 1px rgb(255, 255, 255, 0.2);
+    border-radius: 1rem 1rem 0rem 0rem;
+}
+.accordion {
+    width: 80vw;
+    background-color: transparent;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+}
+.accordion-item {
+    border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+}
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    color: rgb(255, 255, 255, 0.8);
+    padding: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.accordion-header:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+}
+
+.arrow {
+    transition: transform 0.3s ease-in-out;
+    display: inline-block; /* Garante que a rotação funcione corretamente */
+}
+
+.accordion-item.active .arrow {
+    transform: rotate(90deg); /* Faz a seta girar para baixo */
+}
+
+.accordion-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    padding: 0 15px;
+}
+
+.accordion-item.active .accordion-content {
+    height: auto;
+    opacity: 1;
+    padding: 15px;
+}
+
+.instalar{
+    height: 80vh;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100vh;
+    border-radius: 1rem;
+    background-color: rgba(71, 71, 71, 0.1);
+    backdrop-filter: blur(10px);
+    border: solid 1px rgb(255, 255, 255, 0.5);
+    padding: 2rem;
+}
+.instalar h2, b{
+    font-weight: 900;
+    font-size: 2rem;
+    color: rgb(255, 255, 255, 0.9);
+}
+.info{
+    display: flex;
+    gap: 1vw;
+}
+.download{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    gap: 2vw;
+}
+.download p{
+    width: 80%;
+    color: rgb(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.info button{
+    height: 9vh;
+    width: 20vw;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+img{
+    width: 20vw;
+    border-radius: 10px;
+}
+.logo{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: rgb(255, 255, 255, 0.8);
+    text-align: center;
+    font-style: italic;
+}
+@media (max-width: 1024px) {
+    h2{
+        font-size: 14px;
+    }
+    p{
+        font-size: 14px;
+    }
+}
+@media (max-width: 768px) {
+    p{
+        font-size: 12px;
+    }
+    #tit{
+        font-size: 18px;
+    }
+    .conteudo{
+        height: 50vh;
+    }
+    #titdois{
+        font-size: 18px;
+    }
+}
+@media (max-width: 425px) {
+    p{
+        font-size: 10px;
+    }
+    #tit{
+        font-size: 16px;
+    }
+    .conteudo{
+        height: 40vh;
+        width: 90vw;
+    }
+    #titdois{
+        font-size: 16px;
+    }
+    .sobre{
+        flex-direction: column;
+        margin-top: 25vh;
+    }
+    .accordion{
+        margin-top: 25vh;
+    }
+    .instalar{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90vw;
+    }
+    .download{
+        width: 100%;
+        font-size: 10px;
+    }
+    .logo{
+        gap: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+    }
+    img{
+        display: none;
+    }
+    .download button{
+        width: 90vw;
+    }
+    .download p{
+        width: 100%;
+    }
+    .download h2{
+        width: 100%;
+        font-size: 18px;
+        text-align: center;
+    }
+    .download b{
+        font-size: 18px;
+    }
+    .topo p{
+        width: 90vw;
+    }
+}
